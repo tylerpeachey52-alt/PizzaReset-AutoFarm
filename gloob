@@ -9,7 +9,7 @@ task.spawn(function()
             Equip:FireServer("Food", 50)
             task.wait(1)
         end
-        task.wait(10)
+        task.wait(4)
         Equip:FireServer("Food", 51)
         task.wait(900)
     end
