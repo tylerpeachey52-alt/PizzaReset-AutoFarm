@@ -1,0 +1,25 @@
+local RS = game:GetService("ReplicatedStorage")
+local Equip = RS.Remotes.RequestEquip
+local Tool = RS.Remotes.UseTool
+
+-- Equip loop
+task.spawn(function()
+    while true do
+        for i = 1,10 do
+            Equip:FireServer("Food", 50)
+            task.wait(1)
+        end
+        task.wait(10)
+        Equip:FireServer("Food", 51)
+        task.wait(900)
+    end
+end)
+
+-- Tool spam loop
+task.spawn(function()
+    while true do
+        Tool:FireServer("Food")
+        Tool:FireServer("Punch")
+        task.wait(0.01)
+    end
+end)
