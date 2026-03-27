@@ -1,25 +1,10 @@
-local RS = game:GetService("ReplicatedStorage")
-local Equip = RS.Remotes.RequestEquip
-local Tool = RS.Remotes.UseTool
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
 
--- Equip loop
-task.spawn(function()
-    while true do
-        for i = 1,10 do
-            Equip:FireServer("Food", 50)
-            task.wait(1)
-        end
-        task.wait(4)
-        Equip:FireServer("Food", 51)
-        task.wait(900)
-    end
+-- Run the remote (if it exists in your own game)
+local success, err = pcall(function()
+    ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("YieldSell"):InvokeServer()
 end)
 
--- Tool spam loop
-task.spawn(function()
-    while true do
-        Tool:FireServer("Food")
-        Tool:FireServer("Punch")
-        task.wait(0.01)
-    end
-end)
+-- Immediately leave the game
+Players.LocalPlayer:Kick("Get fucking sold by Darth bitch")
