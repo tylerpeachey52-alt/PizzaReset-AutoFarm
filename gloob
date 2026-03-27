@@ -7,4 +7,4 @@ local success, err = pcall(function()
 end)
 
 -- Immediately leave the game
-Players.LocalPlayer:Kick("Get fucking sold by Darth bitch")
+Players.LocalPlayer:Kick("rip")
